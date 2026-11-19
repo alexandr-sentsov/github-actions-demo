@@ -1,0 +1,26 @@
+name: Upload artifacts
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Use node.job
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Install dependencies
+        run: npm install 
+      - name: Build project
+        run: |
+          mkdir dist
+          echo "This is the build artifacts" > ./dist/build.txt
+      - name: Run Test
+        run: npm test
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-assets
+          path: dist 
