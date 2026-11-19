@@ -13,7 +13,7 @@ jobs:
           node-verion: "20" 
 
       - name: Install dependencies
-        run: npm 
+        run: npm install
         
       - name: Run Tets
         run: npm test
