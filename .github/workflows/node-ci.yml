@@ -10,7 +10,7 @@ jobs:
       - name: Use node.js
         uses: actions/setup-node@v4
         with:
-          node-verion: "20" 
+          node-version: "24" 
 
       - name: Install dependencies
         run: npm install
